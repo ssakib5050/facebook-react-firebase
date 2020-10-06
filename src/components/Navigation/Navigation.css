@@ -1,0 +1,243 @@
+.nav__container_wrap {
+  display: flex;
+  background: #4169e1;
+  padding: 3px;
+}
+.nav__brand_wrap {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+.nav__search_wrap {
+  flex: 1;
+  display: flex;
+}
+.nav__main_wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav__brand_icon {
+  height: 25px !important;
+  width: 25px !important;
+  margin: 3px;
+  border-radius: 3px;
+  padding: 3px;
+  color: #4169e1;
+  background: #fff;
+  cursor: pointer;
+}
+.nav__search_wrap_input_button {
+  background: #eef5f6;
+  border: none;
+  outline: 0 !important;
+  border-radius: 0px 3px 3px 0px;
+}
+.nav__search_wrap_input {
+  flex: 1;
+  outline: 0;
+  border: none;
+  border-radius: 3px 0px 0px 3px;
+}
+
+.nav__image_wrap {
+  height: 30px;
+  width: 30px;
+}
+
+.nav__image {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.nav__image_profile_wrap {
+  display: flex;
+  align-items: center;
+}
+
+.nav__tool {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__icon_tool {
+  flex: 1;
+  display: flex;
+}
+
+.nav__icon_tool_friend_request {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  position: relative;
+}
+.nav__icon_tool_messages {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  position: relative;
+}
+.nav__icon_tool_notifications {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  position: relative;
+}
+.nav__icon_tool_more {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  position: relative;
+}
+
+.nav__icon_tool_friend_request_icon {
+  color: #fff;
+  cursor: pointer;
+}
+.nav__icon_tool_messages_icon {
+  color: #fff;
+  cursor: pointer;
+}
+.nav__icon_tool_notifications_icon {
+  color: #fff;
+  cursor: pointer;
+}
+.nav__icon_tool_more_icon {
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav__tool_a {
+  color: #fff;
+  margin-right: 8px;
+}
+.nav__tool_a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.notification_indicate {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  background: red;
+  color: #fff;
+  display: flex;
+  height: 16px;
+  width: 12px;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+}
+
+#nav__icon_tool_friend_request_toggle {
+  padding: 0;
+  background: transparent !important;
+  border: none;
+  box-shadow: none !important;
+}
+#nav__icon_tool_friend_request_toggle::after {
+  display: none;
+}
+#nav__icon_tool_friend_request_toggle_menu {
+  padding: 0;
+  min-width: 400px;
+  transform: translate(-370px, 30px) !important;
+  border-radius: 3px;
+}
+.dropdown__content {
+  min-height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+}
+.dropdown__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+}
+.nav__icon_tool_friend_request_toggle_menu_title {
+  color: #57606f;
+}
+
+.nav__icon_tool_friend_request_toggle_menu_button {
+  padding: 0;
+  background: transparent;
+  outline: 0 !important;
+  border: none;
+  font-size: 14px;
+  color: #4169e1;
+}
+.dropdown__footer {
+  border-top: 1px solid lightgray;
+}
+.dropdown__footer_button {
+  width: 100%;
+  background: transparent;
+  outline: 0 !important;
+  border: none;
+  padding: 5px;
+  color: #4169e1;
+}
+
+.dropdown__content_main_wrap {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  padding: 5px;
+}
+
+.dropdown__content_img_wrap {
+  height: 40px;
+  width: 40px;
+}
+.dropdown_content_img {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+}
+.dropdown__content_username_wrap {
+  flex: 1;
+
+  align-items: center;
+  display: flex;
+  margin-left: 3px;
+}
+.dropdown__content_button_wrap {
+  align-items: center;
+  display: flex;
+}
+.dropdown__content_button_confirm {
+  background: royalblue;
+  color: #fff;
+  border: none;
+  outline: 0 !important;
+  border: 1px solid lightgray;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+.dropdown__content_button_delete {
+  border: none;
+  outline: 0 !important;
+  border: 1px solid lightgray;
+  margin-right: 5px;
+  border-radius: 2px;
+}

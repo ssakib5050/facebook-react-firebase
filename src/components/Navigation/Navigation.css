@@ -2,6 +2,8 @@
   display: flex;
   background: #4169e1;
   padding: 3px;
+  position: sticky;
+  top: 0;
 }
 .nav__brand_wrap {
   display: flex;
@@ -46,6 +48,7 @@
 .nav__image_wrap {
   height: 30px;
   width: 30px;
+  margin-left: 5px;
 }
 
 .nav__image {
@@ -240,4 +243,30 @@
   border: 1px solid lightgray;
   margin-right: 5px;
   border-radius: 2px;
+}
+
+.nav__container_sm_button_wrap {
+  border: none;
+  background: transparent;
+  outline: 0 !important;
+  position: relative;
+}
+.nav__container_sm_button_wrap_icon {
+  color: #fff;
+  /* border: 1px solid red; */
+  font-size: 20px;
+}
+
+.nav__container {
+  justify-content: space-around;
+}
+
+.nav__container_sm_button_wrap_icon_notification {
+  position: absolute;
+  background: red;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -4px;
+  right: 0px;
 }

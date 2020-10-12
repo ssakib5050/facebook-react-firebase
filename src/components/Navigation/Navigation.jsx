@@ -17,7 +17,7 @@ import {
 function Navigation() {
   return (
     <div className="nav__container_wrap">
-      <div className="container nav__container_wrap">
+      <div className="container nav__container_wrap  d-lg-flex d-none">
         <div className="nav__brand_wrap">
           <FontAwesomeIcon icon={faFacebookF} className="nav__brand_icon" />
         </div>
@@ -100,17 +100,95 @@ function Navigation() {
               <span className="notification_indicate">8</span>
             </div>
             <div className="nav__icon_tool_messages ">
-              <FontAwesomeIcon
-                icon={faComment}
-                className="nav__icon_tool_messages_icon"
-              />
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="success"
+                  id="nav__icon_tool_friend_request_toggle"
+                >
+                  <FontAwesomeIcon
+                    icon={faComment}
+                    className="nav__icon_tool_messages_icon"
+                  />
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu id="nav__icon_tool_friend_request_toggle_menu">
+                  <div className="dropdown__header">
+                    <p className="font-weight-bold mb-0 nav__icon_tool_friend_request_toggle_menu_title">
+                      Messages
+                    </p>
+                    <button className="nav__icon_tool_friend_request_toggle_menu_button">
+                      Mark all as read
+                    </button>
+                  </div>
+                  <div className="dropdown__content">
+                    <Scrollbars style={{ height: 300 }}>
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                    </Scrollbars>
+                  </div>
+                  <div className="dropdown__footer ">
+                    <button className="dropdown__footer_button">
+                      View All
+                    </button>
+                  </div>
+                </Dropdown.Menu>
+              </Dropdown>
+
               <span className="notification_indicate">8</span>
             </div>
             <div className="nav__icon_tool_notifications ">
-              <FontAwesomeIcon
-                icon={faBell}
-                className="nav__icon_tool_notifications_icon"
-              />
+              <Dropdown>
+                <Dropdown.Toggle
+                  variant="success"
+                  id="nav__icon_tool_friend_request_toggle"
+                >
+                  <FontAwesomeIcon
+                    icon={faBell}
+                    className="nav__icon_tool_notifications_icon"
+                  />
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu id="nav__icon_tool_friend_request_toggle_menu">
+                  <div className="dropdown__header">
+                    <p className="font-weight-bold mb-0 nav__icon_tool_friend_request_toggle_menu_title">
+                      Notifications
+                    </p>
+                    <button className="nav__icon_tool_friend_request_toggle_menu_button">
+                      Mark all as read
+                    </button>
+                  </div>
+                  <div className="dropdown__content">
+                    <Scrollbars style={{ height: 300 }}>
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                      <Item />
+                    </Scrollbars>
+                  </div>
+                  <div className="dropdown__footer ">
+                    <button className="dropdown__footer_button">
+                      View All
+                    </button>
+                  </div>
+                </Dropdown.Menu>
+              </Dropdown>
+
               <span className="notification_indicate">8</span>
             </div>
             <div className="nav__icon_tool_more ">
@@ -121,6 +199,46 @@ function Navigation() {
             </div>
           </div>
         </div>
+      </div>
+      {/* Mobile */}
+      <div className="d-lg-none d-flex w-100 nav__container">
+        <button className="nav__container_sm_button_wrap">
+          <FontAwesomeIcon
+            icon={faFacebookF}
+            className="nav__container_sm_button_wrap_icon"
+          />
+        </button>
+        <button className="nav__container_sm_button_wrap">
+          <FontAwesomeIcon
+            icon={faSearch}
+            className="nav__container_sm_button_wrap_icon"
+          />
+        </button>
+
+        <button className="nav__container_sm_button_wrap">
+          <FontAwesomeIcon
+            icon={faComment}
+            className="nav__container_sm_button_wrap_icon"
+          />
+          <span className="nav__container_sm_button_wrap_icon_notification">
+            12
+          </span>
+        </button>
+        <button className="nav__container_sm_button_wrap">
+          <FontAwesomeIcon
+            icon={faBell}
+            className="nav__container_sm_button_wrap_icon"
+          />
+          <span className="nav__container_sm_button_wrap_icon_notification">
+            12
+          </span>
+        </button>
+        <button className="nav__container_sm_button_wrap">
+          <FontAwesomeIcon
+            icon={faUserAlt}
+            className="nav__container_sm_button_wrap_icon"
+          />
+        </button>
       </div>
     </div>
   );

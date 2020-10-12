@@ -7,6 +7,14 @@ import {
   faComment,
   faBell,
   faEllipsisV,
+  faSave,
+  faHistory,
+  faRandom,
+  faAlignJustify,
+  faEyeSlash,
+  faExclamationTriangle,
+  faBellSlash,
+  faClock,
 } from "@fortawesome/free-solid-svg-icons";
 
 export {
@@ -17,4 +25,12 @@ export {
   faComment,
   faBell,
   faEllipsisV,
+  faSave,
+  faHistory,
+  faRandom,
+  faAlignJustify,
+  faEyeSlash,
+  faExclamationTriangle,
+  faBellSlash,
+  faClock,
 };

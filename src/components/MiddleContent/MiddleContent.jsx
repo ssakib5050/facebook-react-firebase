@@ -1,10 +1,14 @@
 import React from "react";
 import "./MiddleContent.css";
 
+import Post from "../Post/Post";
+
 function MiddleContent() {
   return (
     <div>
-      <div className="dev">Main Content</div>
+      <div className="">
+        <Post />
+      </div>
     </div>
   );
 }

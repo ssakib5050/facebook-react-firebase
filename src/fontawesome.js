@@ -7,6 +7,7 @@ import {
   faComment,
   faBell,
   faEllipsisV,
+  faEllipsisH,
   faSave,
   faHistory,
   faRandom,
@@ -16,6 +17,11 @@ import {
   faBellSlash,
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faThumbsUp,
+  faComment as faCommentRegular,
+  faShareSquare,
+} from "@fortawesome/free-regular-svg-icons";
 
 export {
   FontAwesomeIcon,
@@ -25,6 +31,7 @@ export {
   faComment,
   faBell,
   faEllipsisV,
+  faEllipsisH,
   faSave,
   faHistory,
   faRandom,
@@ -33,4 +40,7 @@ export {
   faExclamationTriangle,
   faBellSlash,
   faClock,
+  faThumbsUp,
+  faCommentRegular,
+  faShareSquare,
 };

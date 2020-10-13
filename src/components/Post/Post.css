@@ -1,10 +1,11 @@
 .post__container {
   background: #fff;
   border: 1px solid lightgray;
-  padding: 5px;
+  /* padding: 5px; */
 }
 .post_container_header {
   display: flex;
+  padding: 5px;
 }
 .post_img_wrap {
   height: 40px;
@@ -51,7 +52,9 @@
 .post_more_icon_wrap_dropdownpost_more_icon_wrap_dropdown_button::before {
   display: none !important;
 }
-
+.post_more_icon_wrap_dropdownpost_more_icon_wrap_dropdown_button_icon {
+  color: #777;
+}
 .post_more_icon_wrap_dropdown_menu_icon {
   position: relative;
   padding-left: 35px !important;
@@ -64,4 +67,106 @@
   position: absolute;
   top: 8px;
   left: 12px;
+}
+.post__content_wrap_text {
+  margin-bottom: 0.5rem;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.post__content_wrap_img {
+  width: 100%;
+}
+.comment_infos {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.comment_infos_likes {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
+/* .comment_infos_likes_wrap {
+  border: 1px solid red;
+} */
+.comment_infos_likes_wrap:nth-child(1) {
+  margin-left: -2px;
+  z-index: 3;
+  height: 21px;
+  width: 21px;
+  background: #fff;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0 0 0 -4px;
+  outline: none;
+  padding: 2px;
+  position: relative;
+}
+.comment_infos_likes_wrap:nth-child(2) {
+  z-index: 2;
+  height: 21px;
+  width: 21px;
+  background: #fff;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0 0 0 -4px;
+  outline: none;
+  padding: 2px;
+  position: relative;
+}
+.comment_infos_likes_wrap:nth-child(3) {
+  height: 21px;
+  width: 21px;
+  background: #fff;
+  border-radius: 12px;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 16px;
+  margin: 0 0 0 -4px;
+  outline: none;
+  padding: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+/*  */
+.comment_infos_comments_shares_btn {
+  color: #777;
+  border: transparent;
+  background: transparent;
+  outline: 0 !important;
+}
+.comment_infos_count {
+  color: #777;
+}
+.post__like_comment_share_panel {
+  display: flex;
+  margin-left: 5px;
+  margin: 5px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.post__like_comment_share_panel_button {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  outline: 0 !important;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+.post__like_comment_share_panel_button:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.post__like_comment_share_panel_button_icon {
+  font-size: 16px;
 }

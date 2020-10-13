@@ -4,6 +4,7 @@
   padding: 3px;
   position: sticky;
   top: 0;
+  z-index: 999;
 }
 .nav__brand_wrap {
   display: flex;

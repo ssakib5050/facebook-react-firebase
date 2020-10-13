@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 
 import {
   FontAwesomeIcon,
   faEllipsisV,
+  faEllipsisH,
   faSave,
   faHistory,
   faRandom,
@@ -12,35 +13,51 @@ import {
   faExclamationTriangle,
   faBellSlash,
   faClock,
+  faThumbsUp,
+  faCommentRegular,
+  faShareSquare,
 } from "../../fontawesome";
 import { Dropdown } from "react-bootstrap";
+import PostReaction from "../PostReaction/PostReaction";
 
-function Post() {
+function Post({ postProfileImage, postImage, postName, postText }) {
+  const [postReactions, setPostReactions] = useState({
+    like: 5,
+    love: 10,
+    care: 0,
+    haha: 100,
+    wow: 0,
+    sad: 0,
+    angry: 20,
+  });
+
+  // const sorted_reaction = Object.keys(postReactions).sort(
+  //   (a, b) => postReactions[b] - postReactions[a]
+  // );
+
+  console.log(Object.keys(postReactions).length);
+
   return (
     <div className="post__container_wrap">
       <div className="post__container">
-        <div className="post_container_header dev">
+        <div className="post_container_header">
           <div className="post_container_header_first">
             <div className="post_img_wrap">
-              <img
-                src="https://via.placeholder.com/150"
-                alt=""
-                className="post_img"
-              />
+              <img src={postProfileImage} alt="" className="post_img" />
             </div>
             <div>
-              <p className="post_name">MD Sadman Sakib</p>
-              <p className="post_timestamp text-muted">1 min ago</p>
+              <p className="post_name">{postName}</p>
+              <p className="post_timestamp text-muted">1 min</p>
             </div>
           </div>
-          <div className="post_more_icon_wrap dev">
+          <div className="post_more_icon_wrap ">
             <Dropdown className="post_more_icon_wrap_dropdown" drop="left">
               <Dropdown.Toggle
                 variant="success"
                 className="post_more_icon_wrap_dropdownpost_more_icon_wrap_dropdown_button"
               >
                 <FontAwesomeIcon
-                  icon={faEllipsisV}
+                  icon={faEllipsisH}
                   className="post_more_icon_wrap_dropdownpost_more_icon_wrap_dropdown_button_icon"
                 />
               </Dropdown.Toggle>
@@ -106,6 +123,51 @@ function Post() {
             </Dropdown>
           </div>
         </div>
+        <div className="post__content_wrap">
+          <div className="post__content_wrap_text">{postText}</div>
+          <img src={postImage} alt="" className="post__content_wrap_img" />
+        </div>
+        <div className="comment_infos">
+          <div className="comment_infos_likes">
+            {/*  */}
+            <PostReaction postReactions={postReactions} />
+            <span className="comment_infos_count">
+              {Object.keys(postReactions).length}
+            </span>
+
+            {/*  */}
+          </div>
+
+          <div className="comment_infos_comments_shares">
+            <button className="comment_infos_comments_shares_btn">
+              145 Comments
+            </button>
+          </div>
+        </div>
+        <div className="post__like_comment_share_panel">
+          <button className="post__like_comment_share_panel_button">
+            <FontAwesomeIcon
+              icon={faThumbsUp}
+              className="post__like_comment_share_panel_button_icon"
+            />
+            <span>Like</span>
+          </button>
+          <button className="post__like_comment_share_panel_button">
+            <FontAwesomeIcon
+              icon={faCommentRegular}
+              className="post__like_comment_share_panel_button_icon"
+            />
+            <span>Comment</span>
+          </button>
+          <button className="post__like_comment_share_panel_button">
+            <FontAwesomeIcon
+              icon={faShareSquare}
+              className="post__like_comment_share_panel_button_icon"
+            />
+            <span>Share</span>
+          </button>
+        </div>
+        s
       </div>
     </div>
   );

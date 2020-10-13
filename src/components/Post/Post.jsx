@@ -3,7 +3,6 @@ import "./Post.css";
 
 import {
   FontAwesomeIcon,
-  faEllipsisV,
   faEllipsisH,
   faSave,
   faHistory,
@@ -13,14 +12,15 @@ import {
   faExclamationTriangle,
   faBellSlash,
   faClock,
-  faThumbsUp,
   faCommentRegular,
   faShareSquare,
 } from "../../fontawesome";
 import { Dropdown } from "react-bootstrap";
 import PostReaction from "../PostReaction/PostReaction";
+import PostReactionSelected from "../PostReactionSelected/PostReactionSelected";
 
 function Post({ postProfileImage, postImage, postName, postText }) {
+  const [postReacted, setPostReacted] = useState("angry");
   const [postReactions, setPostReactions] = useState({
     like: 5,
     love: 10,
@@ -35,7 +35,7 @@ function Post({ postProfileImage, postImage, postName, postText }) {
   //   (a, b) => postReactions[b] - postReactions[a]
   // );
 
-  console.log(Object.keys(postReactions).length);
+  // console.log(postReacted);
 
   return (
     <div className="post__container_wrap">
@@ -146,11 +146,7 @@ function Post({ postProfileImage, postImage, postName, postText }) {
         </div>
         <div className="post__like_comment_share_panel">
           <button className="post__like_comment_share_panel_button">
-            <FontAwesomeIcon
-              icon={faThumbsUp}
-              className="post__like_comment_share_panel_button_icon"
-            />
-            <span>Like</span>
+            <PostReactionSelected postReacted={postReacted} />
           </button>
           <button className="post__like_comment_share_panel_button">
             <FontAwesomeIcon

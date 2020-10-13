@@ -144,6 +144,7 @@
 }
 .comment_infos_count {
   color: #777;
+  margin-left: 3px;
 }
 .post__like_comment_share_panel {
   display: flex;
@@ -169,4 +170,31 @@
 
 .post__like_comment_share_panel_button_icon {
   font-size: 16px;
+}
+.post__reaction_panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post__like_reaction_text {
+  color: #0d8cf1;
+}
+.post__love_reaction_text {
+  color: #eb2748;
+}
+.post__care_reaction_text {
+  color: #f5ac44;
+}
+.post__haha_reaction_text {
+  color: #f5ac44;
+}
+.post__wow_reaction_text {
+  color: #f5ac44;
+}
+.post__sad_reaction_text {
+  color: #f5ac44;
+}
+.post__angry_reaction_text {
+  color: #e85d08;
 }

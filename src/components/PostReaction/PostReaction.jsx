@@ -10,19 +10,29 @@ function PostReaction({ postReactions }) {
 
     switch (reaction) {
       case "like":
-        return <img src="\assets\images\icons\like-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\like-reaction.png" alt="" />
+        );
       case "love":
-        return <img src="\assets\images\icons\love-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\love-reaction.png" alt="" />
+        );
       case "care":
-        return <img src="\assets\images\icons\care-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\care-reaction.png" alt="" />
+        );
       case "haha":
-        return <img src="\assets\images\icons\haha-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\haha-reaction.png" alt="" />
+        );
       case "wow":
-        return <img src="\assets\images\icons\wow-reaction.png" alt="" />;
+        return <img src="\assets\images\icons\small\wow-reaction.png" alt="" />;
       case "sad":
-        return <img src="\assets\images\icons\sad-reaction.png" alt="" />;
+        return <img src="\assets\images\icons\small\sad-reaction.png" alt="" />;
       case "angry":
-        return <img src="\assets\images\icons\angry-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\angry-reaction.png" alt="" />
+        );
     }
   };
 
@@ -31,19 +41,29 @@ function PostReaction({ postReactions }) {
 
     switch (reaction) {
       case "like":
-        return <img src="\assets\images\icons\like-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\like-reaction.png" alt="" />
+        );
       case "love":
-        return <img src="\assets\images\icons\love-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\love-reaction.png" alt="" />
+        );
       case "care":
-        return <img src="\assets\images\icons\care-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\care-reaction.png" alt="" />
+        );
       case "haha":
-        return <img src="\assets\images\icons\haha-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\haha-reaction.png" alt="" />
+        );
       case "wow":
-        return <img src="\assets\images\icons\wow-reaction.png" alt="" />;
+        return <img src="\assets\images\icons\small\wow-reaction.png" alt="" />;
       case "sad":
-        return <img src="\assets\images\icons\sad-reaction.png" alt="" />;
+        return <img src="\assets\images\icons\small\sad-reaction.png" alt="" />;
       case "angry":
-        return <img src="\assets\images\icons\angry-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\angry-reaction.png" alt="" />
+        );
     }
   };
 
@@ -52,19 +72,29 @@ function PostReaction({ postReactions }) {
 
     switch (reaction) {
       case "like":
-        return <img src="\assets\images\icons\like-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\like-reaction.png" alt="" />
+        );
       case "love":
-        return <img src="\assets\images\icons\love-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\love-reaction.png" alt="" />
+        );
       case "care":
-        return <img src="\assets\images\icons\care-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\care-reaction.png" alt="" />
+        );
       case "haha":
-        return <img src="\assets\images\icons\haha-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\haha-reaction.png" alt="" />
+        );
       case "wow":
-        return <img src="\assets\images\icons\wow-reaction.png" alt="" />;
+        return <img src="\assets\images\icons\small\wow-reaction.png" alt="" />;
       case "sad":
-        return <img src="\assets\images\icons\sad-reaction.png" alt="" />;
+        return <img src="\assets\images\icons\small\sad-reaction.png" alt="" />;
       case "angry":
-        return <img src="\assets\images\icons\angry-reaction.png" alt="" />;
+        return (
+          <img src="\assets\images\icons\small\angry-reaction.png" alt="" />
+        );
     }
   };
 

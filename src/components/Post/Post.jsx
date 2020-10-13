@@ -37,6 +37,14 @@ function Post({ postProfileImage, postImage, postName, postText }) {
 
   // console.log(postReacted);
 
+  const reactionInsert = (e) => {
+    if (postReacted) {
+      setPostReacted(null);
+    } else {
+      setPostReacted(e);
+    }
+  };
+
   return (
     <div className="post__container_wrap">
       <div className="post__container">
@@ -147,6 +155,72 @@ function Post({ postProfileImage, postImage, postName, postText }) {
         <div className="post__like_comment_share_panel">
           <button className="post__like_comment_share_panel_button">
             <PostReactionSelected postReacted={postReacted} />
+            <div className="reaction-box"></div>
+            <div className="post__main_reactions">
+              <button
+                className="post__main_reactions_button post__main_reactions_button_like"
+                onClick={() => reactionInsert("like")}
+              >
+                <img
+                  src="\assets\images\icons\big\like-reaction.png"
+                  className="post__main_reactions_button_img post__main_reactions_button_img_like"
+                />
+              </button>
+              <button
+                className="post__main_reactions_button post__main_reactions_button_love"
+                onClick={() => reactionInsert("love")}
+              >
+                <img
+                  src="\assets\images\icons\big\love-reaction.png"
+                  className="post__main_reactions_button_img post__main_reactions_button_img_love"
+                />
+              </button>
+              <button
+                className="post__main_reactions_button post__main_reactions_button_care"
+                onClick={() => reactionInsert("care")}
+              >
+                <img
+                  src="\assets\images\icons\big\care-reaction.png"
+                  className="post__main_reactions_button_img post__main_reactions_button_img_care"
+                />
+              </button>
+              <button
+                className="post__main_reactions_button post__main_reactions_button_haha"
+                onClick={() => reactionInsert("haha")}
+              >
+                <img
+                  src="\assets\images\icons\big\haha-reaction.png"
+                  className="post__main_reactions_button_img post__main_reactions_button_img_haha"
+                />
+              </button>
+              <button
+                className="post__main_reactions_button post__main_reactions_button_wow"
+                onClick={() => reactionInsert("wow")}
+              >
+                <img
+                  src="\assets\images\icons\big\wow-reaction.png"
+                  className="post__main_reactions_button_img post__main_reactions_button_img_wow"
+                />
+              </button>
+              <button
+                className="post__main_reactions_button post__main_reactions_button_sad"
+                onClick={() => reactionInsert("sad")}
+              >
+                <img
+                  src="\assets\images\icons\big\sad-reaction.png"
+                  className="post__main_reactions_button_img post__main_reactions_button_img_sad"
+                />
+              </button>
+              <button
+                className="post__main_reactions_button post__main_reactions_button_angry"
+                onClick={() => reactionInsert("angry")}
+              >
+                <img
+                  src="\assets\images\icons\big\angry-reaction.png"
+                  className="post__main_reactions_button_img post__main_reactions_button_img_angry"
+                />
+              </button>
+            </div>
           </button>
           <button className="post__like_comment_share_panel_button">
             <FontAwesomeIcon

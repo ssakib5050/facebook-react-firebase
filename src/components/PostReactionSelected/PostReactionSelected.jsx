@@ -4,7 +4,7 @@ import "./PostReactionSelected.css";
 import { FontAwesomeIcon, faThumbsUp } from "../../fontawesome";
 
 function PostReactionSelected({ postReacted }) {
-  console.log(postReacted);
+  // console.log(postReacted);
 
   const postReactedSetup = () => {
     switch (postReacted) {

@@ -1,9 +1,11 @@
 import React from "react";
 
 function PostReaction({ postReactions }) {
-  const sorted_reaction = Object.keys(postReactions).sort(
-    (a, b) => postReactions[b] - postReactions[a]
-  );
+  const sorted_reaction = postReactions
+    ? Object.keys(postReactions).sort(
+        (a, b) => postReactions[b] - postReactions[a]
+      )
+    : "";
 
   const firstReaction = () => {
     const reaction = sorted_reaction[0];

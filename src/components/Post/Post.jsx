@@ -18,22 +18,36 @@ import {
 import { Dropdown } from "react-bootstrap";
 import PostReaction from "../PostReaction/PostReaction";
 import PostReactionSelected from "../PostReactionSelected/PostReactionSelected";
+import PostComment from "../PostComment/PostComment";
 
-function Post({ postProfileImage, postImage, postName, postText }) {
+function Post({
+  postId,
+  postProfileImage,
+  postUsername,
+  postTimestamp,
+  postText,
+  postImage,
+  postReactions,
+  /**/
+
+  postName,
+}) {
   const [postReacted, setPostReacted] = useState("angry");
-  const [postReactions, setPostReactions] = useState({
-    like: 5,
-    love: 10,
-    care: 0,
-    haha: 100,
-    wow: 0,
-    sad: 0,
-    angry: 20,
-  });
+  // const [postReactions, setPostReactions] = useState({
+  //   like: 5,
+  //   love: 10,
+  //   care: 0,
+  //   haha: 100,
+  //   wow: 0,
+  //   sad: 0,
+  //   angry: 20,
+  // });
 
-  // const sorted_reaction = Object.keys(postReactions).sort(
-  //   (a, b) => postReactions[b] - postReactions[a]
-  // );
+  const sorted_reaction = postReactions
+    ? Object.keys(postReactions).sort(
+        (a, b) => postReactions[b] - postReactions[a]
+      )
+    : "";
 
   // console.log(postReacted);
 
@@ -54,8 +68,12 @@ function Post({ postProfileImage, postImage, postName, postText }) {
               <img src={postProfileImage} alt="" className="post_img" />
             </div>
             <div>
-              <p className="post_name">{postName}</p>
-              <p className="post_timestamp text-muted">1 min</p>
+              <p className="post_name">{postUsername}</p>
+              <p className="post_timestamp text-muted">
+                {postTimestamp
+                  ? timeDifference(new Date(), new Date(postTimestamp * 1000))
+                  : "1s"}
+              </p>
             </div>
           </div>
           <div className="post_more_icon_wrap ">
@@ -140,7 +158,7 @@ function Post({ postProfileImage, postImage, postName, postText }) {
             {/*  */}
             <PostReaction postReactions={postReactions} />
             <span className="comment_infos_count">
-              {Object.keys(postReactions).length}
+              {postReactions ? Object.keys(postReactions).length : ""}
             </span>
 
             {/*  */}
@@ -237,10 +255,37 @@ function Post({ postProfileImage, postImage, postName, postText }) {
             <span>Share</span>
           </button>
         </div>
-        s
+        <div className="post__comment_wrap">
+          <PostComment />
+          <PostComment />
+          <PostComment />
+          <PostComment />
+        </div>
       </div>
     </div>
   );
 }
+function timeDifference(current, previous) {
+  var msPerMinute = 60 * 1000;
+  var msPerHour = msPerMinute * 60;
+  var msPerDay = msPerHour * 24;
+  var msPerMonth = msPerDay * 30;
+  var msPerYear = msPerDay * 365;
 
+  var elapsed = current - previous;
+
+  if (elapsed < msPerMinute) {
+    return Math.round(elapsed / 1000) + "s";
+  } else if (elapsed < msPerHour) {
+    return Math.round(elapsed / msPerMinute) + "m";
+  } else if (elapsed < msPerDay) {
+    return Math.round(elapsed / msPerHour) + "h";
+  } else if (elapsed < msPerMonth) {
+    return Math.round(elapsed / msPerDay) + "d";
+  } else if (elapsed < msPerYear) {
+    return Math.round(elapsed / msPerMonth) + "m";
+  } else {
+    return Math.round(elapsed / msPerYear) + "y";
+  }
+}
 export default Post;

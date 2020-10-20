@@ -4,7 +4,6 @@ import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import {
   faSearch,
   faUserAlt,
-  faComment,
   faBell,
   faEllipsisV,
   faEllipsisH,
@@ -12,16 +11,27 @@ import {
   faHistory,
   faRandom,
   faAlignJustify,
-  faEyeSlash,
   faExclamationTriangle,
   faBellSlash,
-  faClock,
-  faTimesCircle,
+  faCamera,
+  faCaretRight,
+  faGlobe,
+  faPaperPlane,
+  faShare,
+  faSmile,
+  faComment,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faThumbsUp,
   faComment as faCommentRegular,
   faShareSquare,
+  faBookmark,
+  faBell as faBellRegular,
+  faEyeSlash,
+  faClock,
+  faFileCode,
+  faTimesCircle,
+  faFlag,
 } from "@fortawesome/free-regular-svg-icons";
 
 export {
@@ -45,4 +55,14 @@ export {
   faCommentRegular,
   faShareSquare,
   faTimesCircle,
+  faCamera,
+  faCaretRight,
+  faGlobe,
+  faPaperPlane,
+  faShare,
+  faSmile,
+  faBookmark,
+  faBellRegular,
+  faFileCode,
+  faFlag,
 };

@@ -4,16 +4,17 @@ import "./Post.css";
 import {
   FontAwesomeIcon,
   faEllipsisH,
-  faSave,
-  faHistory,
-  faRandom,
-  faAlignJustify,
   faEyeSlash,
-  faExclamationTriangle,
-  faBellSlash,
   faClock,
-  faCommentRegular,
   faShareSquare,
+  /**/
+  faThumbsUp,
+  faComment,
+  faBookmark,
+  faBellRegular,
+  faFileCode,
+  faTimesCircle,
+  faFlag,
 } from "../../fontawesome";
 import { Dropdown } from "react-bootstrap";
 import PostReaction from "../PostReaction/PostReaction";
@@ -33,6 +34,9 @@ function Post({
   postName,
 }) {
   const [postReacted, setPostReacted] = useState("angry");
+  // Temo -> down
+  const [reaction, setReaction] = useState("angry");
+  const [comments, setComments] = useState([]);
   // const [postReactions, setPostReactions] = useState({
   //   like: 5,
   //   love: 10,
@@ -60,208 +64,156 @@ function Post({
   };
 
   return (
-    <div className="post__container_wrap">
-      <div className="post__container">
-        <div className="post_container_header">
-          <div className="post_container_header_first">
-            <div className="post_img_wrap">
-              <img src={postProfileImage} alt="" className="post_img" />
-            </div>
-            <div>
-              <p className="post_name">{postUsername}</p>
-              <p className="post_timestamp text-muted">
-                {postTimestamp
-                  ? timeDifference(new Date(), new Date(postTimestamp * 1000))
-                  : "1s"}
-              </p>
-            </div>
-          </div>
-          <div className="post_more_icon_wrap ">
-            <Dropdown className="post_more_icon_wrap_dropdown" drop="left">
-              <Dropdown.Toggle
-                variant="success"
-                className="post_more_icon_wrap_dropdownpost_more_icon_wrap_dropdown_button"
-              >
-                <FontAwesomeIcon
-                  icon={faEllipsisH}
-                  className="post_more_icon_wrap_dropdownpost_more_icon_wrap_dropdown_button_icon"
-                />
-              </Dropdown.Toggle>
+    <div className="post">
+      <div className="post__head">
+        <div className="post__img_wrapper">
+          <img
+            src="https://via.placeholder.com/150/"
+            alt=""
+            className="post__main_img"
+          />
+        </div>
+        <div className="post__header_middle">
+          <h6 className="post__header_middle_name">MD Sadman Sakib</h6>
+          <p className="post__header_middle_timeline">2h</p>
+        </div>
 
-              <Dropdown.Menu className="post_more_icon_wrap_dropdown_menu">
-                <Dropdown.Item className="post_more_icon_wrap_dropdown_menu_icon">
-                  <FontAwesomeIcon
-                    icon={faSave}
-                    className="post_more_icon_wrap_dropdown_menu_icon_icon"
-                  />
-                  <p>Save Post</p>
-                </Dropdown.Item>
-                <Dropdown.Item className="post_more_icon_wrap_dropdown_menu_icon">
-                  <FontAwesomeIcon
-                    icon={faHistory}
-                    className="post_more_icon_wrap_dropdown_menu_icon_icon"
-                  />
-                  <p>View Edit History</p>
-                </Dropdown.Item>
-                <Dropdown.Item className="post_more_icon_wrap_dropdown_menu_icon">
-                  <FontAwesomeIcon
-                    icon={faRandom}
-                    className="post_more_icon_wrap_dropdown_menu_icon_icon"
-                  />
-                  <p>Turn on notification for this post</p>
-                </Dropdown.Item>
-                <Dropdown.Item className="post_more_icon_wrap_dropdown_menu_icon">
-                  <FontAwesomeIcon
-                    icon={faAlignJustify}
-                    className="post_more_icon_wrap_dropdown_menu_icon_icon"
-                  />
-                  <p>Embeded</p>
-                </Dropdown.Item>
-                <Dropdown.Item className="post_more_icon_wrap_dropdown_menu_icon">
-                  <FontAwesomeIcon
-                    icon={faEyeSlash}
-                    className="post_more_icon_wrap_dropdown_menu_icon_icon"
-                  />
-                  <p>Hide Post</p>
-                </Dropdown.Item>
-                <Dropdown.Item className="post_more_icon_wrap_dropdown_menu_icon">
-                  <FontAwesomeIcon
-                    icon={faClock}
-                    className="post_more_icon_wrap_dropdown_menu_icon_icon"
-                  />
-                  <p>Snooze</p>
-                </Dropdown.Item>
-                <Dropdown.Item className="post_more_icon_wrap_dropdown_menu_icon">
-                  <FontAwesomeIcon
-                    icon={faBellSlash}
-                    className="post_more_icon_wrap_dropdown_menu_icon_icon"
-                  />
-                  <p>Mute</p>
-                </Dropdown.Item>
-                <Dropdown.Item className="post_more_icon_wrap_dropdown_menu_icon">
-                  <FontAwesomeIcon
-                    icon={faExclamationTriangle}
-                    className="post_more_icon_wrap_dropdown_menu_icon_icon"
-                  />
-                  <p>Report</p>
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
-        </div>
-        <div className="post__content_wrap">
-          <div className="post__content_wrap_text">{postText}</div>
-          <img src={postImage} alt="" className="post__content_wrap_img" />
-        </div>
-        <div className="comment_infos">
-          <div className="comment_infos_likes">
-            {/*  */}
-            <PostReaction postReactions={postReactions} />
-            <span className="comment_infos_count">
-              {postReactions ? Object.keys(postReactions).length : ""}
-            </span>
+        <Dropdown drop="left" className="post__more_dropdown">
+          <Dropdown.Toggle
+            variant="success"
+            className="post__header_last dropleft"
+          >
+            <FontAwesomeIcon icon={faEllipsisH} />
+          </Dropdown.Toggle>
 
-            {/*  */}
-          </div>
-
-          <div className="comment_infos_comments_shares">
-            <button className="comment_infos_comments_shares_btn">
-              145 Comments
-            </button>
-          </div>
-        </div>
-        <div className="post__like_comment_share_panel">
-          <button className="post__like_comment_share_panel_button">
-            <PostReactionSelected postReacted={postReacted} />
-            <div className="reaction-box"></div>
-            <div className="post__main_reactions">
-              <button
-                className="post__main_reactions_button post__main_reactions_button_like"
-                onClick={() => reactionInsert("like")}
-              >
-                <img
-                  src="\assets\images\icons\big\like-reaction.png"
-                  className="post__main_reactions_button_img post__main_reactions_button_img_like"
-                />
-              </button>
-              <button
-                className="post__main_reactions_button post__main_reactions_button_love"
-                onClick={() => reactionInsert("love")}
-              >
-                <img
-                  src="\assets\images\icons\big\love-reaction.png"
-                  className="post__main_reactions_button_img post__main_reactions_button_img_love"
-                />
-              </button>
-              <button
-                className="post__main_reactions_button post__main_reactions_button_care"
-                onClick={() => reactionInsert("care")}
-              >
-                <img
-                  src="\assets\images\icons\big\care-reaction.png"
-                  className="post__main_reactions_button_img post__main_reactions_button_img_care"
-                />
-              </button>
-              <button
-                className="post__main_reactions_button post__main_reactions_button_haha"
-                onClick={() => reactionInsert("haha")}
-              >
-                <img
-                  src="\assets\images\icons\big\haha-reaction.png"
-                  className="post__main_reactions_button_img post__main_reactions_button_img_haha"
-                />
-              </button>
-              <button
-                className="post__main_reactions_button post__main_reactions_button_wow"
-                onClick={() => reactionInsert("wow")}
-              >
-                <img
-                  src="\assets\images\icons\big\wow-reaction.png"
-                  className="post__main_reactions_button_img post__main_reactions_button_img_wow"
-                />
-              </button>
-              <button
-                className="post__main_reactions_button post__main_reactions_button_sad"
-                onClick={() => reactionInsert("sad")}
-              >
-                <img
-                  src="\assets\images\icons\big\sad-reaction.png"
-                  className="post__main_reactions_button_img post__main_reactions_button_img_sad"
-                />
-              </button>
-              <button
-                className="post__main_reactions_button post__main_reactions_button_angry"
-                onClick={() => reactionInsert("angry")}
-              >
-                <img
-                  src="\assets\images\icons\big\angry-reaction.png"
-                  className="post__main_reactions_button_img post__main_reactions_button_img_angry"
-                />
-              </button>
+          <Dropdown.Menu>
+            <div className="post__header_last_dropdown_item">
+              <FontAwesomeIcon
+                icon={faBookmark}
+                className="post__header_last_dropdown_item_icon"
+              />
+              <div className="post__header_last_dropdown_item_name">
+                Save Post
+              </div>
             </div>
-          </button>
-          <button className="post__like_comment_share_panel_button">
-            <FontAwesomeIcon
-              icon={faCommentRegular}
-              className="post__like_comment_share_panel_button_icon"
-            />
-            <span>Comment</span>
-          </button>
-          <button className="post__like_comment_share_panel_button">
-            <FontAwesomeIcon
-              icon={faShareSquare}
-              className="post__like_comment_share_panel_button_icon"
-            />
-            <span>Share</span>
-          </button>
+
+            <div className="post__header_last_dropdown_item">
+              <FontAwesomeIcon
+                icon={faBellRegular}
+                className="post__header_last_dropdown_item_icon"
+              />
+              <div className="post__header_last_dropdown_item_name">
+                Turn on notifications for this post
+              </div>
+            </div>
+
+            <div className="post__header_last_dropdown_item">
+              <FontAwesomeIcon
+                icon={faFileCode}
+                className="post__header_last_dropdown_item_icon"
+              />
+              <div className="post__header_last_dropdown_item_name">Snooze</div>
+            </div>
+
+            <div className="post__header_last_dropdown_item">
+              <FontAwesomeIcon
+                icon={faEyeSlash}
+                className="post__header_last_dropdown_item_icon"
+              />
+              <div className="post__header_last_dropdown_item_name">Embed</div>
+            </div>
+
+            <div className="post__header_last_dropdown_item">
+              <FontAwesomeIcon
+                icon={faClock}
+                className="post__header_last_dropdown_item_icon"
+              />
+              <div className="post__header_last_dropdown_item_name">Hide</div>
+            </div>
+
+            <div className="post__header_last_dropdown_item">
+              <FontAwesomeIcon
+                icon={faTimesCircle}
+                className="post__header_last_dropdown_item_icon"
+              />
+              <div className="post__header_last_dropdown_item_name">
+                Unfollow
+              </div>
+            </div>
+
+            <div className="post__header_last_dropdown_item">
+              <FontAwesomeIcon
+                icon={faFlag}
+                className="post__header_last_dropdown_item_icon"
+              />
+              <div className="post__header_last_dropdown_item_name">Report</div>
+            </div>
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
+      <div className="post__postContent">
+        <img
+          src="https://via.placeholder.com/720x480"
+          alt=""
+          className="post__post_img"
+        />
+
+        <p className="post__post_content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae,
+          sapiente? Provident ut incidunt ab iure aspernatur molestias
+          consectetur maxime similique porro voluptatum cum corporis veritatis a
+          itaque sit, magni totam suscipit, ea laudantium deserunt cupiditate
+          facilis perferendis? Autem itaque, repellat modi eos accusantium sequi
+          quas ea porro labore amet ducimus.
+        </p>
+      </div>
+      <div className="post__infos">
+        <div className="post__reaction_view">
+          <img
+            src="/assets/images/icons/small/like-reaction.png"
+            alt=""
+            className="post__reaction_view_img"
+          />
+          <img
+            src="/assets/images/icons/small/like-reaction.png"
+            alt=""
+            className="post__reaction_view_img"
+          />
+          <img
+            src="/assets/images/icons/small/like-reaction.png"
+            alt=""
+            className="post__reaction_view_img"
+          />
+          {/* <img src="/assets/images/icons/small/like-reaction.png" alt=""  className="post__reaction_view_img"/>
+          <img src="/assets/images/icons/small/like-reaction.png" alt=""  className="post__reaction_view_img"/> */}
+          <span className="post__reaction_view_img_reactions">100</span>
         </div>
-        <div className="post__comment_wrap">
-          <PostComment />
-          <PostComment />
-          <PostComment />
-          <PostComment />
+        <div className="post__comment_view">Comments</div>
+      </div>
+      <div className="post__like_comment_share">
+        <div className="post_like">
+          <FontAwesomeIcon
+            icon={faThumbsUp}
+            className="post__like_comment_share_icon"
+          />
+          <span className="post__like_comment_share_text">Like</span>
+        </div>
+        <div className="post_comment">
+          <FontAwesomeIcon
+            icon={faComment}
+            className="post__like_comment_share_icon"
+          />
+          <span className="post__like_comment_share_text">Comment</span>
+        </div>
+        <div className="post_share">
+          <FontAwesomeIcon
+            icon={faShareSquare}
+            className="post__like_comment_share_icon"
+          />
+          <span className="post__like_comment_share_text">Share</span>
         </div>
       </div>
+      s
     </div>
   );
 }

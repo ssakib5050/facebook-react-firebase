@@ -13,9 +13,10 @@ function MiddleContent() {
   const [posting, setPosting] = useState(false);
   const [postText, setPostText] = useState("");
   const [postImage, setPostImage] = useState(undefined);
-  const [postProgress, setPostProgress] = useState(null);
+  const [postProgress, setPostProgress] = useState(10);
 
   useEffect(() => {
+    // Load Posts
     db.collection("posts")
       .orderBy("postTimestamp", "desc")
       .onSnapshot(
@@ -24,16 +25,16 @@ function MiddleContent() {
           setPosts(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })))
       );
   }, []);
-  // console.log(posts);
+
   useEffect(() => {
-    db.collection("users")
-      .doc("ht7LksfL1sYk5AzNAZel")
-      .collection("comments")
-      .onSnapshot(
-        (snapshot) =>
-          snapshot.docs.map((doc) => doc /*console.log(doc.data())*/)
-        // snapshot.map((e) => console.log(e))
-      );
+    // db.collection("users")
+    //   .doc("ht7LksfL1sYk5AzNAZel")
+    //   .collection("comments")
+    //   .onSnapshot(
+    //     (snapshot) =>
+    //       // snapshot.docs.map((doc) => doc /*console.log(doc.data())*/)
+    //     snapshot.map((e) => console.log(e))
+    //   );
   }, []);
 
   const posted = (e) => {
@@ -234,7 +235,7 @@ function MiddleContent() {
             />
           )
         )}
-        {posts.map((post) => console.log(post))}
+        {/* {posts.map((post) => console.log(post))} */}
       </div>
     </div>
   );

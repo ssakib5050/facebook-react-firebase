@@ -15,10 +15,16 @@ function MiddleContent() {
   const [postImage, setPostImage] = useState(undefined);
   const [postProgress, setPostProgress] = useState(10);
 
+  // console.log("posts  ---> ", posts);
+  // console.log("posting  ---> ", posting);
+  // console.log("postProgress  ---> ", postProgress);
+  // console.log("------------------------------------------------");
+
   useEffect(() => {
     // Load Posts
+
     db.collection("posts")
-      .orderBy("postTimestamp", "desc")
+      // .orderBy("postTimestamp", "desc")
       .onSnapshot(
         // (snapshot) => snapshot.docs.map((doc) => console.log(doc.data()))
         (snapshot) =>
@@ -26,21 +32,8 @@ function MiddleContent() {
       );
   }, []);
 
-  useEffect(() => {
-    // db.collection("users")
-    //   .doc("ht7LksfL1sYk5AzNAZel")
-    //   .collection("comments")
-    //   .onSnapshot(
-    //     (snapshot) =>
-    //       // snapshot.docs.map((doc) => doc /*console.log(doc.data())*/)
-    //     snapshot.map((e) => console.log(e))
-    //   );
-  }, []);
-
   const posted = (e) => {
     e.preventDefault();
-
-    console.log("bbb");
 
     if (postText) {
       if (!postImage) {
@@ -50,7 +43,7 @@ function MiddleContent() {
           postUsername: "ssakib4050",
           postTimestamp: firebase.firestore.FieldValue.serverTimestamp(),
           postText: postText,
-          postImage: "https://via.placeholder.com/150/",
+          postImage: "",
 
           postReactions: {
             like: [],
@@ -71,7 +64,6 @@ function MiddleContent() {
 
           const uploadTask = storage
             .ref()
-
             .child(`images/${uuidv4()}.${postImage.name}`)
             .put(file);
 
@@ -93,14 +85,23 @@ function MiddleContent() {
                 console.log(downloadUrl);
                 // setPostTweeting(false);
                 // setPostInput("");
-                // setPostImage(null);
+                setPostImage(null);
                 db.collection("posts").add({
-                  profileImage: "https://i.redd.it/6onq25y0sh311.jpg",
-                  tweetImage: downloadUrl,
-                  username: "ssakib4050",
-                  tweet: postText,
-                  tweetLiked: [],
-                  timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                  postProfileImage: "https://via.placeholder.com/150/",
+                  postUsername: "ssakib4050",
+                  postTimestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                  postText: postText,
+                  postImage: downloadUrl,
+
+                  postReactions: {
+                    like: [],
+                    love: [],
+                    care: [],
+                    haha: [],
+                    wow: [],
+                    sad: [],
+                    angry: [],
+                  },
                 });
               });
             }
@@ -221,21 +222,33 @@ function MiddleContent() {
             postTimestamp,
             postText,
             postImage,
-            postReaction,
+            postReactions,
           }) => (
+            // <Post
+            //   key={id}
+            //   postId={id}
+            //   postProfileImage={postProfileImage}
+            //   postUsername={postUsername}
+            //   postTimestamp={postTimestamp ? postTimestamp.seconds : ""}
+            //   postText={postText}
+            //   postImage={postImage}
+            //   postReactions={postReactions}
+            // />
+
             <Post
               key={id}
               postId={id}
               postProfileImage={postProfileImage}
-              postUsername={postUsername}
-              postTimestamp={postTimestamp ? postTimestamp.seconds : ""}
+              postUsername={"ssakib405"}
+              postTimestamp={postTimestamp && postTimestamp}
               postText={postText}
               postImage={postImage}
-              postReactions={postReaction}
+              postReactions={postReactions}
+              postMainUsername={"ssakib405"}
             />
           )
         )}
-        {/* {posts.map((post) => console.log(post))} */}
+        {/* {posts.map((post) => console.log(post.postReactions))} */}
       </div>
     </div>
   );

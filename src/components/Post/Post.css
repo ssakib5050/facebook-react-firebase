@@ -114,6 +114,9 @@
   padding: 5px;
   margin: 5px;
   position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 .post_comment {
   flex: 1;
@@ -392,4 +395,32 @@
 }
 .post__comment_wrap_top {
   padding: 5px;
+}
+.reaction__span_text_like {
+  color: #2078f4;
+  font-weight: 600;
+}
+.reaction__span_text_love {
+  color: #f33e58;
+  font-weight: 600;
+}
+.reaction__span_text_care {
+  color: #f7b125;
+  font-weight: 600;
+}
+.reaction__span_text_haha {
+  color: #f7b125;
+  font-weight: 600;
+}
+.reaction__span_text_wow {
+  color: #f7b125;
+  font-weight: 600;
+}
+.reaction__span_text_sad {
+  color: #f7b125;
+  font-weight: 600;
+}
+.reaction__span_text_angry {
+  color: #e9714a;
+  font-weight: 600;
 }

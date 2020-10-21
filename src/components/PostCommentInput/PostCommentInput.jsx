@@ -7,7 +7,7 @@ function PostCommentInput() {
   const [commentInput, setCommentInput] = useState("");
 
   const handleCommentInput = (e) => {
-    console.log(e.key);
+    // console.log(e.key);
     if (commentInput) {
       if (e.key === "Enter") {
         setCommentInput("");

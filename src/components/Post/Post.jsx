@@ -7,19 +7,19 @@ import {
   faEyeSlash,
   faClock,
   faShareSquare,
-  /**/
   faThumbsUp,
-  faComment,
   faBookmark,
   faBellRegular,
   faFileCode,
   faTimesCircle,
   faFlag,
+  faCommentRegular,
 } from "../../fontawesome";
 import { Dropdown } from "react-bootstrap";
 import PostReaction from "../PostReaction/PostReaction";
 import PostReactionSelected from "../PostReactionSelected/PostReactionSelected";
 import PostComment from "../PostComment/PostComment";
+import PostCommentInput from "../PostCommentInput/PostCommentInput";
 
 function Post({
   postId,
@@ -190,6 +190,7 @@ function Post({
         </div>
         <div className="post__comment_view">Comments</div>
       </div>
+
       <div className="post__like_comment_share">
         <div className="post_like">
           <FontAwesomeIcon
@@ -197,10 +198,34 @@ function Post({
             className="post__like_comment_share_icon"
           />
           <span className="post__like_comment_share_text">Like</span>
+
+          <div className="reaction-box"></div>
+          <div className="reaction-like ">
+            <img src="assets\images\icons\big\like-reaction.png" alt="" />
+          </div>
+          <div className="reaction-love ">
+            <img src="assets\images\icons\big\love-reaction.png" alt="" />
+          </div>
+          <div className="reaction-care ">
+            <img src="assets\images\icons\big\care-reaction.png" alt="" />
+          </div>
+          <div className="reaction-haha ">
+            <img src="assets\images\icons\big\haha-reaction.png" alt="" />
+          </div>
+          <div className="reaction-wow ">
+            <img src="assets\images\icons\big\wow-reaction.png" alt="" />
+          </div>
+          <div className="reaction-sad ">
+            <img src="assets\images\icons\big\sad-reaction.png" alt="" />
+          </div>
+          <div className="reaction-angry ">
+            <img src="assets\images\icons\big\angry-reaction.png" alt="" />
+          </div>
         </div>
+
         <div className="post_comment">
           <FontAwesomeIcon
-            icon={faComment}
+            icon={faCommentRegular}
             className="post__like_comment_share_icon"
           />
           <span className="post__like_comment_share_text">Comment</span>
@@ -213,10 +238,17 @@ function Post({
           <span className="post__like_comment_share_text">Share</span>
         </div>
       </div>
-      s
+
+      <PostCommentInput />
+      <PostComment />
+      <PostComment />
+      <PostComment />
+      <PostComment />
+      <PostComment />
     </div>
   );
 }
+
 function timeDifference(current, previous) {
   var msPerMinute = 60 * 1000;
   var msPerHour = msPerMinute * 60;

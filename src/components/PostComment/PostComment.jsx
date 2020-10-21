@@ -25,122 +25,75 @@ function PostComment() {
   };
 
   return (
-    <>
-      <div className="postComment__wrap">
-        <div className="postComment_container_left">
-          <div className="postComment_image_wrap">
-            <img
-              src="https://via.placeholder.com/100x100"
-              alt=""
-              className="postComment_image"
-            />
-          </div>
-          <div className="postComment_comment">
-            <p className="postComment_comment_name">MD Sadman Sakib</p>
-            <p className="postComment_comment_text">
-              Hello World Hello World Hello World Hello World Hello World Hello
-              World Hello World Hello World Hello World Hello World Hello World
-              Hello World Hello World Hello World Hello World
-            </p>
-          </div>
+    <div className="post__comment_wrap">
+      <div className="post__comment_wrap_top">
+        <div className="post__comment_img_wrap">
+          <img
+            src="https://via.placeholder.com/100"
+            alt=""
+            className="post__comment_img"
+          />
         </div>
-        <div className="postComment__more_wrap">
-          <button className="postComment__more_wrap_btn">
-            <FontAwesomeIcon
-              icon={faEllipsisH}
-              className="postComment__more_wrap_btn_icon"
-            />
-          </button>
+        <div className="post__comment_text_wrap">
+          <p className="post__comment_text">Hello World</p>
+        </div>
+        <div className="post__comment_more_wrap">
+          <FontAwesomeIcon icon={faEllipsisH} className="post__comment_more" />
         </div>
       </div>
-      <div className="postComment__like_comment_share dev">
-        <button className="postComment__like_comment_share_like">
+      <div className="post_comment_like_comment_info">
+        <button className="post_comment_like_comment_info_like">
           Like
-          <div className="reaction-box"></div>
-          {/*  */}
-          <div className="post__main_reactions">
-            <button
-              className="post__main_reactions_button post__main_reactions_button_like"
-              onClick={() => reactionInsert("like")}
-            >
-              <img
-                src="\assets\images\icons\big\like-reaction.png"
-                className="post__main_reactions_button_img post__main_reactions_button_img_like"
-              />
-            </button>
-            <button
-              className="post__main_reactions_button post__main_reactions_button_love"
-              onClick={() => reactionInsert("love")}
-            >
-              <img
-                src="\assets\images\icons\big\love-reaction.png"
-                className="post__main_reactions_button_img post__main_reactions_button_img_love"
-              />
-            </button>
-            <button
-              className="post__main_reactions_button post__main_reactions_button_care"
-              onClick={() => reactionInsert("care")}
-            >
-              <img
-                src="\assets\images\icons\big\care-reaction.png"
-                className="post__main_reactions_button_img post__main_reactions_button_img_care"
-              />
-            </button>
-            <button
-              className="post__main_reactions_button post__main_reactions_button_haha"
-              onClick={() => reactionInsert("haha")}
-            >
-              <img
-                src="\assets\images\icons\big\haha-reaction.png"
-                className="post__main_reactions_button_img post__main_reactions_button_img_haha"
-              />
-            </button>
-            <button
-              className="post__main_reactions_button post__main_reactions_button_wow"
-              onClick={() => reactionInsert("wow")}
-            >
-              <img
-                src="\assets\images\icons\big\wow-reaction.png"
-                className="post__main_reactions_button_img post__main_reactions_button_img_wow"
-              />
-            </button>
-            <button
-              className="post__main_reactions_button post__main_reactions_button_sad"
-              onClick={() => reactionInsert("sad")}
-            >
-              <img
-                src="\assets\images\icons\big\sad-reaction.png"
-                className="post__main_reactions_button_img post__main_reactions_button_img_sad"
-              />
-            </button>
-            <button
-              className="post__main_reactions_button post__main_reactions_button_angry"
-              onClick={() => reactionInsert("angry")}
-            >
-              <img
-                src="\assets\images\icons\big\angry-reaction.png"
-                className="post__main_reactions_button_img post__main_reactions_button_img_angry"
-              />
-            </button>
+          <div className="comment-reaction-box"></div>
+          <div className="comment-reaction-like ">
+            <img src="assets\images\icons\big\like-reaction.png" alt="" />
           </div>
-          {/*  */}
-        </button>{" "}
-        ⋅
-        <button className="postComment__like_comment_share_comment">
+          <div className="comment-reaction-love ">
+            <img src="assets\images\icons\big\love-reaction.png" alt="" />
+          </div>
+          <div className="comment-reaction-care ">
+            <img src="assets\images\icons\big\care-reaction.png" alt="" />
+          </div>
+          <div className="comment-reaction-haha ">
+            <img src="assets\images\icons\big\haha-reaction.png" alt="" />
+          </div>
+          <div className="comment-reaction-wow ">
+            <img src="assets\images\icons\big\wow-reaction.png" alt="" />
+          </div>
+          <div className="comment-reaction-sad ">
+            <img src="assets\images\icons\big\sad-reaction.png" alt="" />
+          </div>
+          <div className="comment-reaction-angry ">
+            <img src="assets\images\icons\big\angry-reaction.png" alt="" />
+          </div>
+        </button>
+        ·
+        <button className="post_comment_like_comment_info_comment">
           Comment
         </button>
-        ⋅<p className="mb-0 postComment__like_comment_timeline">14min</p>⋅
-        <div className="comment_infos_likes">
-          {/*  */}
-          <PostReaction postReactions={postReactions} />
-          <span className="comment_infos_count">
-            {Object.keys(postReactions).length}
-          </span>
-
-          {/*  */}
+        · <span className="post_comment_like_comment_info_timeline">1h</span>
+        <div className="post__reaction_view">
+          <img
+            src="/assets/images/icons/small/like-reaction.png"
+            alt=""
+            className="post__reaction_view_img"
+          />
+          <img
+            src="/assets/images/icons/small/like-reaction.png"
+            alt=""
+            className="post__reaction_view_img"
+          />
+          <img
+            src="/assets/images/icons/small/like-reaction.png"
+            alt=""
+            className="post__reaction_view_img"
+          />
+          {/* <img src="/assets/images/icons/small/like-reaction.png" alt=""  className="post__reaction_view_img"/>
+    <img src="/assets/images/icons/small/like-reaction.png" alt=""  className="post__reaction_view_img"/> */}
+          <span className="post__reaction_view_img_reactions">100</span>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

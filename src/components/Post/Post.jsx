@@ -35,27 +35,35 @@ function Post({
 }) {
   const [commentHide, setCommentHide] = useState(false); //Default False
   const [postReacted, setPostReacted] = useState("");
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    // db.collection('posts').doc(postId).set({
+    db.collection("posts")
+      .doc(postId)
+      .collection("comments")
+      .onSnapshot((snapshot) =>
+        setComments(
+          snapshot.docs.map((doc) => ({ commentId: doc.id, ...doc.data() }))
+        )
+      );
+  }, []);
 
-    // })
+  // console.log("comments -> ", comments);
 
-    if (postReactions.like.find((like) => like === postMainUsername)) {
+  useEffect(() => {
+    if (postReactions.like.find((like) => like === postUsername)) {
       setPostReacted("like");
-    } else if (postReactions.love.find((love) => love === postMainUsername)) {
+    } else if (postReactions.love.find((love) => love === postUsername)) {
       setPostReacted("love");
-    } else if (postReactions.care.find((care) => care === postMainUsername)) {
+    } else if (postReactions.care.find((care) => care === postUsername)) {
       setPostReacted("care");
-    } else if (postReactions.haha.find((haha) => haha === postMainUsername)) {
+    } else if (postReactions.haha.find((haha) => haha === postUsername)) {
       setPostReacted("haha");
-    } else if (postReactions.wow.find((wow) => wow === postMainUsername)) {
+    } else if (postReactions.wow.find((wow) => wow === postUsername)) {
       setPostReacted("wow");
-    } else if (postReactions.sad.find((sad) => sad === postMainUsername)) {
+    } else if (postReactions.sad.find((sad) => sad === postUsername)) {
       setPostReacted("sad");
-    } else if (
-      postReactions.angry.find((angry) => angry === postMainUsername)
-    ) {
+    } else if (postReactions.angry.find((angry) => angry === postUsername)) {
       setPostReacted("angry");
     }
   }, []);
@@ -86,11 +94,8 @@ function Post({
     (a, b) => tempObj[b] - tempObj[a]
   );
 
-  // console.log(postReactions.like);
-  // console.log(postReactions.like.filter((like) => like === postUsername));
-  // console.log(postReactions.like.filter((like) => like != postUsername));
   const reactionInsert = (e) => {
-    console.log(e);
+    // console.log(e);
 
     const userReactedLike = postReactions.like.find(
       (like) => like === postUsername
@@ -116,7 +121,7 @@ function Post({
       (angry) => angry === postUsername
     );
 
-    console.log(userReactedLike);
+    // console.log(userReactedLike);
 
     if (
       userReactedLike ||
@@ -127,7 +132,7 @@ function Post({
       userReactedSad ||
       userReactedAngry
     ) {
-      console.log("YEss");
+      // console.log("YEss");
       db.collection("posts")
         .doc(postId)
         .update({
@@ -264,36 +269,6 @@ function Post({
     } else {
       setPostReacted(e);
     }
-
-    // db.collection("posts")
-    //   .doc(postId)
-    //   .update({
-    //     postReactions: {
-    //       like: [...postReactions.like, "ssakib4050"],
-    //       love: [...postReactions.love],
-    //       care: [...postReactions.care],
-    //       haha: [...postReactions.haha],
-    //       wow: [...postReactions.wow],
-    //       sad: [...postReactions.sad],
-    //       angry: [...postReactions.angry],
-    //     },
-    //   });
-
-    // if (postReactions.like.find((like) => like === tempUsername)) {
-    //   setPostReacted("like");
-    // } else if (postReactions.love.find((love) => love === tempUsername)) {
-    //   setPostReacted("love");
-    // } else if (postReactions.care.find((care) => care === tempUsername)) {
-    //   setPostReacted("care");
-    // } else if (postReactions.haha.find((haha) => haha === tempUsername)) {
-    //   setPostReacted("haha");
-    // } else if (postReactions.wow.find((wow) => wow === tempUsername)) {
-    //   setPostReacted("wow");
-    // } else if (postReactions.sad.find((sad) => sad === tempUsername)) {
-    //   setPostReacted("sad");
-    // } else if (postReactions.angry.find((angry) => angry === tempUsername)) {
-    //   setPostReacted("angry");
-    // }
   };
 
   const commentButtonClick = () => {
@@ -919,8 +894,31 @@ function Post({
 
       {commentHide && (
         <>
-          <PostCommentInput />
-          <PostComment />
+          <PostCommentInput postId={postId} />
+
+          {comments.map(
+            ({
+              commentId,
+              commentProfileImage,
+              commentUsername,
+              commentReactions,
+              commentText,
+              commentTimestamp,
+            }) => (
+              <PostComment
+                key={commentId}
+                postId={postId}
+                commentId={commentId}
+                commentProfileImage={commentProfileImage}
+                commentUsername={commentUsername}
+                commentReactions={commentReactions}
+                commentText={commentText}
+                commentTimestamp={commentTimestamp}
+              />
+            )
+          )}
+
+          {/* {comments.map((e) => console.log(e))} */}
         </>
       )}
     </div>

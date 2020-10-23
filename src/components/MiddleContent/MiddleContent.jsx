@@ -3,7 +3,7 @@ import "./MiddleContent.css";
 
 import Post from "../Post/Post";
 import { ProgressBar } from "react-bootstrap";
-import { firebase, db, storage } from "../../firebase";
+import { firebase, db, storage, auth } from "../../firebase";
 import { TextareaAutosize } from "@material-ui/core";
 import { FontAwesomeIcon, faTimesCircle } from "../../fontawesome";
 import { v4 as uuidv4 } from "uuid";
@@ -12,8 +12,10 @@ function MiddleContent() {
   const [posts, setPosts] = useState([]);
   const [posting, setPosting] = useState(false);
   const [postText, setPostText] = useState("");
-  const [postImage, setPostImage] = useState(undefined);
-  const [postProgress, setPostProgress] = useState(10);
+  const [postImage, setPostImage] = useState("");
+  const [postProgress, setPostProgress] = useState(null);
+
+  const user = auth.currentUser;
 
   // console.log("posts  ---> ", posts);
   // console.log("posting  ---> ", posting);
@@ -25,6 +27,7 @@ function MiddleContent() {
 
     db.collection("posts")
       // .orderBy("postTimestamp", "desc")
+      .orderBy("postTimestamp", "desc")
       .onSnapshot(
         // (snapshot) => snapshot.docs.map((doc) => console.log(doc.data()))
         (snapshot) =>
@@ -39,8 +42,8 @@ function MiddleContent() {
       if (!postImage) {
         // Without Image
         db.collection("posts").add({
-          postProfileImage: "https://via.placeholder.com/150/",
-          postUsername: "ssakib4050",
+          postProfileImage: user.photoURL,
+          postUsername: user.displayName,
           postTimestamp: firebase.firestore.FieldValue.serverTimestamp(),
           postText: postText,
           postImage: "",
@@ -86,9 +89,10 @@ function MiddleContent() {
                 // setPostTweeting(false);
                 // setPostInput("");
                 setPostImage(null);
+                setPostProgress(null);
                 db.collection("posts").add({
-                  postProfileImage: "https://via.placeholder.com/150/",
-                  postUsername: "ssakib4050",
+                  postProfileImage: user.photoURL,
+                  postUsername: user.displayName,
                   postTimestamp: firebase.firestore.FieldValue.serverTimestamp(),
                   postText: postText,
                   postImage: downloadUrl,
@@ -133,7 +137,7 @@ function MiddleContent() {
               value={postText}
             />
           </div>
-          {postImage ? (
+          {postImage && (
             <div style={{ position: "relative" }}>
               <img
                 src={window.URL.createObjectURL(postImage)}
@@ -143,22 +147,18 @@ function MiddleContent() {
               <FontAwesomeIcon
                 icon={faTimesCircle}
                 className="middleContent__posting_image_icon"
-                onClick={() => setPostImage(undefined)}
+                onClick={() => setPostImage("")}
               />
             </div>
-          ) : (
-            ""
           )}
 
           <hr className="mb-1" />
-          {postProgress ? (
+          {postProgress && (
             <ProgressBar
               animated
               now={postProgress}
               className="middleContent__progressbar"
             />
-          ) : (
-            ""
           )}
 
           <div className="middleContent__posting_tool ">
@@ -239,7 +239,7 @@ function MiddleContent() {
               key={id}
               postId={id}
               postProfileImage={postProfileImage}
-              postUsername={"ssakib405"}
+              postUsername={postUsername}
               postTimestamp={postTimestamp && postTimestamp}
               postText={postText}
               postImage={postImage}

@@ -110,6 +110,7 @@
   align-items: center;
   font-size: 18px;
   position: relative;
+  background: royalblue !important;
 }
 
 .nav__icon_tool_friend_request_icon {
@@ -270,4 +271,20 @@
   border-radius: 3px;
   top: -4px;
   right: 0px;
+}
+/* .nav__icon_tool_more_dropdown {
+} */
+
+.nav__icon_tool_more_dropdown .dropdown-toggle {
+  padding: 0;
+  box-shadow: none !important;
+  border: none;
+}
+
+.nav__icon_tool_more_dropdown .dropdown-toggle::after {
+  display: none !important;
+}
+
+.nav__dropdown_item:active {
+  background: royalblue !important;
 }

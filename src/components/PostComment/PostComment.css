@@ -1,7 +1,9 @@
 .post_comment_like_comment_info_like {
   position: relative;
 }
-
+.post__comment_wrap {
+  padding-bottom: 0px;
+}
 /* Post Reaction */
 .comment-reaction-box {
   position: absolute;

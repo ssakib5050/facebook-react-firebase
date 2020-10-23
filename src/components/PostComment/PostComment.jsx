@@ -4,7 +4,15 @@ import "./PostComment.css";
 import { FontAwesomeIcon, faEllipsisH } from "../../fontawesome";
 import PostReaction from "../PostReaction/PostReaction";
 
-function PostComment() {
+function PostComment({
+  postId,
+  commentId,
+  commentProfileImage,
+  commentUsername,
+  commentReactions,
+  commentText,
+  commentTimestamp,
+}) {
   const [postReacted, setPostReacted] = useState("angry");
   const [postReactions, setPostReactions] = useState({
     like: 5,
@@ -28,14 +36,10 @@ function PostComment() {
     <div className="post__comment_wrap">
       <div className="post__comment_wrap_top">
         <div className="post__comment_img_wrap">
-          <img
-            src="https://via.placeholder.com/100"
-            alt=""
-            className="post__comment_img"
-          />
+          <img src={commentProfileImage} alt="" className="post__comment_img" />
         </div>
         <div className="post__comment_text_wrap">
-          <p className="post__comment_text">Hello World</p>
+          <p className="post__comment_text">{commentText}</p>
         </div>
         <div className="post__comment_more_wrap">
           <FontAwesomeIcon icon={faEllipsisH} className="post__comment_more" />
@@ -71,8 +75,15 @@ function PostComment() {
         <button className="post_comment_like_comment_info_comment">
           Comment
         </button>
-        · <span className="post_comment_like_comment_info_timeline">1h</span>
-        <div className="post__reaction_view">
+        ·{" "}
+        <span className="post_comment_like_comment_info_timeline">
+          {commentTimestamp &&
+            timeDifference(
+              new Date(),
+              new Date(commentTimestamp.seconds * 1000)
+            )}
+        </span>
+        {/* <div className="post__reaction_view">
           <img
             src="/assets/images/icons/small/like-reaction.png"
             alt=""
@@ -89,12 +100,36 @@ function PostComment() {
             className="post__reaction_view_img"
           />
           {/* <img src="/assets/images/icons/small/like-reaction.png" alt=""  className="post__reaction_view_img"/>
-    <img src="/assets/images/icons/small/like-reaction.png" alt=""  className="post__reaction_view_img"/> */}
+    <img src="/assets/images/icons/small/like-reaction.png" alt=""  className="post__reaction_view_img"/> }
           <span className="post__reaction_view_img_reactions">100</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
+}
+
+function timeDifference(current, previous) {
+  var msPerMinute = 60 * 1000;
+  var msPerHour = msPerMinute * 60;
+  var msPerDay = msPerHour * 24;
+  var msPerMonth = msPerDay * 30;
+  var msPerYear = msPerDay * 365;
+
+  var elapsed = current - previous;
+
+  if (elapsed < msPerMinute) {
+    return Math.round(elapsed / 1000) + "s";
+  } else if (elapsed < msPerHour) {
+    return Math.round(elapsed / msPerMinute) + "m";
+  } else if (elapsed < msPerDay) {
+    return Math.round(elapsed / msPerHour) + "h";
+  } else if (elapsed < msPerMonth) {
+    return Math.round(elapsed / msPerDay) + "d";
+  } else if (elapsed < msPerYear) {
+    return Math.round(elapsed / msPerMonth) + "m";
+  } else {
+    return Math.round(elapsed / msPerYear) + "y";
+  }
 }
 
 export default PostComment;

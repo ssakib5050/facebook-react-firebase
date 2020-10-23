@@ -7,7 +7,7 @@ import RightSidebar from "../RightSidebar/RightSidebar";
 
 function MainContent() {
   return (
-    <div className="dev">
+    <div className="">
       <div className="container mainContent_wrap ">
         <div className="row">
           <div className="col-lg-3 col-3 d-none d-lg-block">

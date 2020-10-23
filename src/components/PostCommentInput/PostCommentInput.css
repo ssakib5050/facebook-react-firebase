@@ -2,6 +2,7 @@
   padding: 10px;
   display: flex;
 }
+
 .post__comment_wrap_container {
   flex: 1;
   padding: 0;

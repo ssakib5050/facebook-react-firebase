@@ -1,0 +1,103 @@
+.login__wrap {
+  height: 100vh;
+}
+
+.login__header {
+  padding: 5px;
+  background: royalblue;
+  display: flex;
+}
+.login__brand {
+  flex: 2.2;
+}
+.login__brand_text {
+  color: #fff;
+  text-align: center;
+}
+
+.login__form {
+  flex: 1;
+  align-items: center;
+  display: flex;
+}
+
+.login__form_login {
+  outline: 0 !important;
+}
+
+.login__form_password {
+  outline: 0 !important;
+}
+
+.login__form_submit {
+  background: rgba(65, 105, 225, 1);
+  color: #fff;
+  outline: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login__main {
+  display: flex;
+  height: calc(100% - 56px);
+}
+
+.login__main_img {
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin: 10%;
+}
+.login__main_img_wrap {
+  height: auto;
+  width: 100%;
+}
+
+.login__register_form {
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login__register_form_h2 {
+  font-weight: bold;
+}
+
+.login__register_form_first_name {
+  flex: 1;
+  outline: 0;
+  padding: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.login__register_form_surname {
+  flex: 1;
+  outline: 0;
+  padding: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
+.login__email {
+  width: 100%;
+  outline: 0;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.login__password {
+  width: 100%;
+  outline: 0;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.login__submit {
+  background: royalblue;
+  color: #fff;
+  border: none;
+  outline: 0;
+  padding: 5px 20px;
+  border-radius: 3px;
+}

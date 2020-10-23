@@ -14,6 +14,8 @@ import {
   faEllipsisV,
 } from "../../fontawesome";
 
+import { auth } from "../../firebase";
+
 function Navigation() {
   return (
     <div className="nav__container_wrap">
@@ -191,12 +193,41 @@ function Navigation() {
 
               <span className="notification_indicate">8</span>
             </div>
-            <div className="nav__icon_tool_more ">
-              <FontAwesomeIcon
-                icon={faEllipsisV}
-                className="nav__icon_tool_more_icon"
-              />
-            </div>
+
+            <Dropdown className="nav__icon_tool_more_dropdown">
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <div className="nav__icon_tool_more">
+                  <FontAwesomeIcon
+                    icon={faEllipsisV}
+                    className="nav__icon_tool_more_icon"
+                  />
+                </div>
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item className="nav__dropdown_item">
+                  Manage Groups
+                </Dropdown.Item>
+                <Dropdown.Item className="nav__dropdown_item">
+                  Advertising on Facebook
+                </Dropdown.Item>
+                <Dropdown.Item className="nav__dropdown_item">
+                  Acitivity Log
+                </Dropdown.Item>
+                <Dropdown.Item className="nav__dropdown_item">
+                  News Feed Preferences
+                </Dropdown.Item>
+                <Dropdown.Item className="nav__dropdown_item">
+                  Settings
+                </Dropdown.Item>
+                <Dropdown.Item
+                  className="nav__dropdown_item"
+                  onClick={() => auth.signOut()}
+                >
+                  Logout
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         </div>
       </div>
@@ -255,7 +286,7 @@ function Item() {
         />
       </div>
       <div className="dropdown__content_username_wrap">
-        <p className="mb-0">MD Sadman Sakib</p>
+        <p className="mb-0">Random Person</p>
       </div>
       <div className="dropdown__content_button_wrap">
         <button className="dropdown__content_button_confirm">Confirm</button>

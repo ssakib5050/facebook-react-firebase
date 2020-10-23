@@ -1,0 +1,9 @@
+.login__register_form_step {
+  width: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+  .login__register_form_step {
+    width: 100%;
+  }
+}

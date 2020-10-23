@@ -1,0 +1,21 @@
+[debug] [2020-10-23T03:08:38.451Z] ----------------------------------------------------------------------
+[debug] [2020-10-23T03:08:38.466Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Proknowledge\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-10-23T03:08:38.466Z] CLI Version:   8.11.2
+[debug] [2020-10-23T03:08:38.466Z] Platform:      win32
+[debug] [2020-10-23T03:08:38.466Z] Node Version:  v12.18.4
+[debug] [2020-10-23T03:08:38.492Z] Time:          Fri Oct 23 2020 09:08:38 GMT+0600 (Bangladesh Standard Time)
+[debug] [2020-10-23T03:08:38.492Z] ----------------------------------------------------------------------
+[debug] [2020-10-23T03:08:38.492Z] 
+[debug] [2020-10-23T03:08:38.535Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-23T03:08:38.535Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Proknowledge\Desktop\localPractise\sandbox\facebook-react-firebase
+

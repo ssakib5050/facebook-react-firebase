@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./PostCommentInput.css";
 
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
-import { db, firebase } from "../../firebase";
+import { db, firebase, auth } from "../../firebase";
 
 function PostCommentInput({
   commentId,
@@ -14,12 +14,11 @@ function PostCommentInput({
   commentTimestamp,
 }) {
   const [commentInput, setCommentInput] = useState("");
-
-  // console.log(postId);
+  const userPhoto = auth.currentUser.photoURL;
 
   const handleCommentInput = (e) => {
     // console.log(e.key);
-    if (commentInput) {
+    if (commentInput.length > 2) {
       if (e.key === "Enter") {
         setCommentInput("");
 
@@ -27,8 +26,8 @@ function PostCommentInput({
           .doc(postId)
           .collection("comments")
           .add({
-            commentProfileImage: "https://via.placeholder.com/150/",
-            commentUsername: "ssakib4050",
+            commentProfileImage: userPhoto,
+            commentUsername: "",
             commentText: commentInput,
             commentTimestamp: firebase.firestore.FieldValue.serverTimestamp(),
             commentReactions: {
@@ -47,11 +46,7 @@ function PostCommentInput({
   return (
     <div className="post__comment_input ">
       <div className="post__comment_img_wrap">
-        <img
-          src={"https://via.placeholder.com/150/"}
-          alt=""
-          className="post__comment_img"
-        />
+        <img src={userPhoto} alt="" className="post__comment_img" />
       </div>
       <div className="post__comment_wrap_container">
         <form action="">

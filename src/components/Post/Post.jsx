@@ -33,7 +33,7 @@ function Post({
   //
   postMainUsername,
 }) {
-  const [commentHide, setCommentHide] = useState(false); //Default False
+  const [commentHide, setCommentHide] = useState(true); //Default False
   const [postReacted, setPostReacted] = useState("");
   const [comments, setComments] = useState([]);
 

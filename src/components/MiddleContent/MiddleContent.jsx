@@ -124,7 +124,7 @@ function MiddleContent() {
           <div className="middleContent__posting_head">
             <div className="middleContent__posting_img_wrap">
               <img
-                src="https://via.placeholder.com/150/"
+                src={user && user.photoURL}
                 alt=""
                 className="middleContent__posting_img"
               />
@@ -173,7 +173,7 @@ function MiddleContent() {
                     alt=""
                     className="middleContent__posting_toolbar_img"
                   />{" "}
-                  <span>Photos</span>{" "}
+                  <span>Photos</span>
                 </label>
               </button>
 

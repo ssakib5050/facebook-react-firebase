@@ -17,6 +17,7 @@ import {
 import { auth } from "../../firebase";
 
 function Navigation() {
+  const user = auth.currentUser;
   return (
     <div className="nav__container_wrap">
       <div className="container nav__container_wrap  d-lg-flex d-none">
@@ -38,7 +39,7 @@ function Navigation() {
             <span className="nav__image_profile_wrap">
               <div className="nav__image_wrap">
                 <img
-                  src="https://via.placeholder.com/150"
+                  src={user && user.photoURL}
                   alt=""
                   className="nav__image"
                 />

@@ -59,7 +59,7 @@ function Item({ type }) {
           alt=""
           className="right-sidebar-img"
         />
-        <span className="right-sidebar-name">MD Sadman Sakib</span>
+        <span className="right-sidebar-name">Random Person</span>
       </div>
 
       <div className="right-sidebar-btn">

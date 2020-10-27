@@ -40,7 +40,8 @@ function LeftSidebar() {
           <Menu image="offers" name="Offers" />
           <Menu image="crisis-response" name="Crisis Response" />
           <Menu image="manage-apps" name="Manage Apps" />
-          <Menu image="jobs" name="Jobs" />
+          {/*<Menu image="jobs" name="Jobs" />*/}
+
         </div>
       </div>
     </div>
